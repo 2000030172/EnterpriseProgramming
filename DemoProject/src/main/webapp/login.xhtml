@@ -1,0 +1,25 @@
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<link rel="stylesheet" type="text/css" href="style1.css"/>
+<head>
+<title>Login</title>
+</head>
+<body>
+<h3>Login</h3>
+	<h:form>
+		Username:
+		<h:inputText value="#{user.email}" id="email" validatorMessage="Value is required">
+		<f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)"/>
+		</h:inputText>
+		<h:message for="email" style="color:red"/>
+	<br/>
+	<br/>
+		Password:
+		<h:inputSecret value="#{user.password}" id="password" validatorMessage="Atleast 8 characters are required">
+		<f:validateLength minimum="8" maximum="20"/>
+		</h:inputSecret>
+	<br/>
+	<br/>
+		<h:commandButton action="LoginServlet" value="Submit"/>
+	</h:form>
+</body>
+</html>
